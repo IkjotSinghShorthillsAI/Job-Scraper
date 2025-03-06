@@ -4,7 +4,7 @@ import csv
 import time
 
 class JobUITester:
-    def __init__(self, keyword, csv_file="jobs.csv"):
+    def __init__(self, keyword, csv_file="filtered_jobs.csv"):
         self.keyword = keyword.lower()  # Convert to lowercase for case-insensitive matching
         self.csv_file = csv_file
         self.driver = webdriver.Chrome()  # Ensure you have ChromeDriver installed
@@ -14,7 +14,7 @@ class JobUITester:
             reader = csv.DictReader(file)
             jobs = list(reader)
 
-        for job in jobs[:5]:
+        for job in jobs:
             job_title = job["title"]
             job_url = job["info"]
 
